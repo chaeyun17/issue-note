@@ -57,3 +57,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # authentication 
 gem 'devise'
+
+# image resizing
+gem 'image_processing'
