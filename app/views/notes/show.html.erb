@@ -20,10 +20,36 @@
     <%= image_tag(@note.photo.variant(resize_to_limit: [300, 300]), :alt=> "Note Photo") %>
   <% end %>
 </p>
+
 <%= link_to 'Edit', edit_note_path(@note) %> |
 <%= link_to 'Back', notes_path %>
 
+<hr>
 
+<h2>Comments</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Author</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @note.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.body %></td>
+        <td><%= comment.author %></td>
+        <td><%= link_to 'Edit', edit_note_comment_path(comment.note, comment) %></td>
+        <td><%= link_to 'Destroy', note_comment_path(comment.note, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<hr>
 
 <h2>Add a comment:</h2>
 <%= form_with model: [ @note, @note.comments.build ] do |form| %>
