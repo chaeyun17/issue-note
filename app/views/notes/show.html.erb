@@ -16,6 +16,11 @@
 </p>
 
 <p>
+  <strong>Count:</strong>
+  <%= @note.view_count %>
+</p>
+
+<p>
   <% if @note.photo.attached? %>
     <%= image_tag(@note.photo.variant(resize_to_limit: [300, 300]), :alt=> "Note Photo") %>
   <% end %>

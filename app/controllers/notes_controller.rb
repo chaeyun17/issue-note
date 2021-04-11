@@ -9,9 +9,10 @@ class NotesController < ApplicationController
 
   # GET /notes/1 or /notes/1.json
   def show
+    @note.increment!(:view_count)
   end
 
-  # GET /notes/new
+  # GET /notes/newo
   def new
     @note = Note.new
   end
