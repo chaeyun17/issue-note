@@ -4,7 +4,13 @@ class NotesController < ApplicationController
 
   # GET /notes or /notes.json
   def index
-    @notes = Note.all
+    # @notes = Note.all
+    if params[:title].nil?
+      @notes = Note.all
+    else
+      puts params[:title]
+      @notes = Note.where(title: params[:title])
+    end
   end
 
   # GET /notes/1 or /notes/1.json
