@@ -1,0 +1,1 @@
+json.notes @notes, :title, :content, :created_at

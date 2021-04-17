@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notes/search', action: :search, controller: 'notes'
   # resources :comments
   devise_for :users
   resources :notes

@@ -1,6 +1,6 @@
 class NotesController < ApplicationController
   before_action :set_note, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   # GET /notes or /notes.json
   def index
@@ -62,6 +62,10 @@ class NotesController < ApplicationController
       format.html { redirect_to notes_url, notice: "Note was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def search
+    @notes = Note.all
   end
 
   private
