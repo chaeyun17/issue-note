@@ -61,3 +61,6 @@ gem 'devise'
 
 # image resizing
 gem 'image_processing'
+
+# Taggable
+gem 'acts-as-taggable-on', '~> 7.0'

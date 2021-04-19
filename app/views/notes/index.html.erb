@@ -17,6 +17,7 @@
       <thead>
         <tr>
           <th scope="col">Title</th>
+          <th scope="col">Tags</th>
           <th scope="col" colspan="3"></th>
         </tr>
       </thead>
@@ -25,6 +26,7 @@
         <% @notes.each do |note| %>
           <tr>
             <td><%= note.title %></td>
+            <td><%= note.tag_list %></td>
             <td><%= link_to 'Show', note %></td>
             <td><%= link_to 'Edit', edit_note_path(note) %></td>
             <td><%= link_to 'Destroy', note, method: :delete, data: { confirm: 'Are you sure?' } %></td>
