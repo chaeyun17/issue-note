@@ -42,12 +42,12 @@
   </thead>
 
   <tbody>
-    <% @note.comments.each do |comment| %>
+    <% @note.comment_threads.each do |comment| %>
       <tr>
         <td><%= comment.body %></td>
-        <td><%= comment.author %></td>
-        <td><%= link_to 'Edit', edit_note_comment_path(comment.note, comment) %></td>
-        <td><%= link_to 'Destroy', note_comment_path(comment.note, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= comment.user.email %></td>
+        <td><%= link_to 'Edit', edit_note_comment_path(@note, comment) %></td>
+        <td><%= link_to 'Destroy', note_comment_path(@note, comment), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -56,11 +56,7 @@
 <hr>
 
 <h2>Add a comment:</h2>
-<%= form_with model: [ @note, @note.comments.build ] do |form| %>
-  <p>
-    <%= form.label :author %><br>
-    <%= form.text_field :author %>
-  </p>
+<%= form_with model: [ @note, @note.comment_threads.build ] do |form| %>
   <p>
     <%= form.label :body %><br>
     <%= form.text_area :body %>

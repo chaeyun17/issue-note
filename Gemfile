@@ -64,3 +64,6 @@ gem 'image_processing'
 
 # Taggable
 gem 'acts-as-taggable-on', '~> 7.0'
+
+# Comments
+gem 'acts_as_commentable_with_threading'

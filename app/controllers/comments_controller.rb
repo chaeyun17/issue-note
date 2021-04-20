@@ -22,7 +22,11 @@ class CommentsController < ApplicationController
   # POST /comments or /comments.json
   def create
     @note = Note.find(params[:note_id])
-    @comment = @note.comments.create(comment_params)
+    if user_signed_in?
+      @user_who_commented = @current_user
+      @comment = Comment.build_from(@note, @user_who_commented.id, comment_params[:body])
+      @comment.save
+    end
     redirect_to note_path(@note)
   end
 
@@ -43,7 +47,8 @@ class CommentsController < ApplicationController
   # DELETE /comments/1 or /comments/1.json
   def destroy
     @comment.destroy
-    redirect_to note_path(@comment.note)
+    @note = Note.find(params[:note_id])
+    redirect_to note_path(@note)
     # respond_to do |format|
     #   format.html { redirect_to comments_url, notice: "Comment was successfully destroyed." }
     #   format.json { head :no_content }
@@ -58,6 +63,6 @@ class CommentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def comment_params
-      params.require(:comment).permit(:body, :author)
+      params.require(:comment).permit(:body)
     end
 end
