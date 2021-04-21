@@ -66,6 +66,7 @@ GEM
       activerecord (>= 4.0)
       activesupport (>= 4.0)
       awesome_nested_set (>= 3.0)
+    acts_as_votable (0.13.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     awesome_nested_set (3.4.0)
@@ -234,6 +235,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 7.0)
   acts_as_commentable_with_threading
+  acts_as_votable
   bootsnap (>= 1.4.4)
   byebug
   capybara (>= 3.26)

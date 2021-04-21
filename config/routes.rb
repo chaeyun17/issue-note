@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'notes/search', action: :search, controller: 'notes'
+  post 'notes/:id/likes', to: 'notes#like', as: 'note_like'
   # resources :comments
   devise_for :users
   resources :notes

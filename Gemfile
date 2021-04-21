@@ -67,3 +67,6 @@ gem 'acts-as-taggable-on', '~> 7.0'
 
 # Comments
 gem 'acts_as_commentable_with_threading'
+
+# Vote
+gem 'acts_as_votable'

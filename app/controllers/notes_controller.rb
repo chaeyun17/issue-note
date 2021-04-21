@@ -68,6 +68,18 @@ class NotesController < ApplicationController
     @notes = Note.all
   end
 
+  def like
+    set_note
+    if user_signed_in?
+      if @current_user.voted_for? @note
+        @note.unliked_by @current_user
+      else
+        @note.liked_by @current_user
+      end
+    end
+    redirect_to note_path(@note)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_note
