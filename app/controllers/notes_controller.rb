@@ -1,3 +1,6 @@
+# require 'rubygems'
+# require 'mechanize'
+
 class NotesController < ApplicationController
   before_action :set_note, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
@@ -30,6 +33,7 @@ class NotesController < ApplicationController
   # POST /notes or /notes.json
   def create
     @note = Note.new(note_params)
+    @note.article_info = crawl(@note.article_link)
 
     respond_to do |format|
       if @note.save
@@ -88,6 +92,12 @@ class NotesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def note_params
-      params.require(:note).permit(:title, :body, :photo, :content, :tag_list)
+      params.require(:note).permit(:title, :body, :photo, :content, :tag_list, :article_link)
+    end
+
+    def crawl(article_link)
+      agent = Mechanize.new
+      puts agent.get('https://en.wikipedia.org/wiki/Ruby').inspect
+      return 'Hello this is a article info'
     end
 end

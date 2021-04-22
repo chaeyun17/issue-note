@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_21_122023) do
+ActiveRecord::Schema.define(version: 2021_04_22_141802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,6 +74,8 @@ ActiveRecord::Schema.define(version: 2021_04_21_122023) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "view_count", default: 0
+    t.string "article_link"
+    t.string "article_info"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

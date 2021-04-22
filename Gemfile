@@ -70,3 +70,6 @@ gem 'acts_as_commentable_with_threading'
 
 # Vote
 gem 'acts_as_votable'
+
+# Crawling
+gem 'mechanize'
