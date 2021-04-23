@@ -33,7 +33,11 @@ class NotesController < ApplicationController
   # POST /notes or /notes.json
   def create
     @note = Note.new(note_params)
-    @note.article_info = crawl(@note.article_link)
+    @article = crawl(@note.article_link, @note)
+
+    @note.save
+    @article.note = @note
+    @article.save
 
     respond_to do |format|
       if @note.save
@@ -95,9 +99,19 @@ class NotesController < ApplicationController
       params.require(:note).permit(:title, :body, :photo, :content, :tag_list, :article_link)
     end
 
-    def crawl(article_link)
+    def crawl(article_link, note)
       agent = Mechanize.new
-      puts agent.get('https://en.wikipedia.org/wiki/Ruby').inspect
-      return 'Hello this is a article info'
+      page = agent.get(article_link)
+      
+      url = article_link
+      title = page.search("//meta[@property='og:title']/@content").text
+      summary = page.search("//meta[@property='og:description']/@content").text
+      press = page.search("//em[@class='info_cp']/a/@href").text
+      publishedAt = page.search("//meta[@property='og:regDate']/@content").text
+      reporter = page.search("//span[@class='info_view']/span[@class='txt_info']").first.text
+
+      article = Article.new(:url=>url, :title=>title, :summary=>summary, :press=>press, :publishedAt=>publishedAt, :reporter=>reporter)
+
+      return article
     end
 end

@@ -5,4 +5,5 @@ class Note < ApplicationRecord
   acts_as_taggable_on :tags
   acts_as_commentable
   acts_as_votable
+  has_many :articles
 end

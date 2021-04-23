@@ -21,12 +21,15 @@
 
 <div class="row">
   <div class="col">
-    <p>
-      <%= @note.article_link %>
-    </p>
-    <p>
-      <%= @note.article_info %>
-    </p>
+    <% @note.articles.each do |article|%>
+      <p>기사 정보</p>
+      <p>url: <%= article.url %></p>
+      <p>title: <%= article.title %></p>
+      <p>summary: <%= article.summary %></p>
+      <p>press: <%= article.press %></p>
+      <p>publishedAt: <%= article.publishedAt %><p>
+      <p>reporter: <%= article.reporter %></p>
+    <% end %>
   </div>
 </div>
 
