@@ -14,4 +14,14 @@
  *= require_self
  */
 /* @import "./actiontext.scss"; */
-@import "bootstrap/scss/bootstrap"
+@import "bootstrap/scss/bootstrap";
+
+.note-article-container{
+
+  font-size: 0.7rem;
+  
+}
+
+.note-content-container{
+  min-height: 300px;
+}

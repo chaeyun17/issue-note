@@ -1,7 +1,10 @@
-
 <div class="row">
   <div class="col">
-    <p id="notice"><%= notice %></p>
+    <% if notice.present? %>
+      <div id="notice" class="alert alert-success" role="alert">
+        <%= notice %>
+      </div>
+    <% end %>
   </div>
 </div>
 
@@ -21,33 +24,32 @@
 
 <div class="row">
   <div class="col">
-    <% @note.articles.each do |article|%>
-      <p>기사 정보</p>
-      <p>url: <%= article.url %></p>
-      <p>title: <%= article.title %></p>
-      <p>summary: <%= article.summary %></p>
-      <p>press: <%= article.press %></p>
-      <p>publishedAt: <%= article.publishedAt %><p>
-      <p>reporter: <%= article.reporter %></p>
+    <% @note.articles.each do |article| %>
+      <div class="card note-article-container">
+        <div class="card-body">
+          <h5 class="card-title"><%= article.title %></h5>
+          <p class="card-text"><%= article.summary %></p>
+          <p class="card-text"><%= article.publishedAt %></p>
+          <a href="<%= article.url %>" class="btn btn-outline-primary btn-sm">기사 보기</a>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>
 
 <div class="row">
-  <div class="col">
-    <p>
-      <%= @note.content %>
-    </p>
+  <div class="col note-content-container py-3">
+    <%= @note.content %>
   </div>
 </div>
 
 
 <div class="row">
   <div class="col">
-    <p>
-      <strong>태그</strong>
-      <%= @note.tag_list %>
-    </p>
+    <strong>태그</strong>
+    <% @note.tags.each do |tag| %>
+      <span><strong>#</strong><%= tag.name %></span>
+    <% end %>
   </div>
 </div>
 
@@ -108,12 +110,8 @@
   <div class="col">
     <p>댓글 작성</p>
     <%= form_with model: [ @note, @note.comment_threads.build ] do |form| %>
-      <p>
-        <%= form.text_area :body %>
-      </p>
-      <p>
-        <%= form.submit %>
-      </p>
+      <p><%= form.text_area :body %></p>
+      <p><%= form.submit %></p>
     <% end %>
   </div>
 </div>
