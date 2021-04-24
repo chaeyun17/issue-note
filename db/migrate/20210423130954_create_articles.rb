@@ -4,8 +4,8 @@ class CreateArticles < ActiveRecord::Migration[6.1]
       t.string :url
       t.string :title
       t.string :summary
-      t.string :press
       t.datetime :publishedAt
+      t.string :press
       t.string :reporter
 
       t.timestamps
