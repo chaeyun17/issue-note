@@ -109,12 +109,13 @@ class NotesController < ApplicationController
       title = page.search("//meta[@property='og:title']/@content").text
       summary = page.search("//meta[@property='og:description']/@content").text
       publishedAt = page.search("//meta[@property='og:regDate']/@content").text
+      imageSrc = page.search("//meta[@property='og:image']/@content").text
       press = ''
       reporter = ''
       # press = page.search("//em[@class='info_cp']/a/@href").text
       # reporter = page.search("//span[@class='info_view']/span[@class='txt_info']").first.text
 
-      article = Article.new(:url=>url, :title=>title, :summary=>summary, :press=>press, :publishedAt=>publishedAt, :reporter=>reporter)
+      article = Article.new(:url=>url, :title=>title, :summary=>summary, :press=>press, :publishedAt=>publishedAt, :reporter=>reporter, :imageSrc=>imageSrc)
 
       return article
     end
