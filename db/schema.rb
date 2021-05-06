@@ -57,8 +57,8 @@ ActiveRecord::Schema.define(version: 2021_04_26_121443) do
     t.string "url"
     t.string "title"
     t.string "summary"
-    t.string "press"
     t.datetime "publishedAt"
+    t.string "press"
     t.string "reporter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
