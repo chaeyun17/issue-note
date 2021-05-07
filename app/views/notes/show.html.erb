@@ -23,8 +23,8 @@
 </div>
 
 <div class="row">
-  <div class="col">
     <% @note.articles.each do |article| %>
+    <div class="col">
       <div class="card note-article-container">
         <% if article.imageSrc.present? %>
           <img src="<%= article.imageSrc %>" class="card-img-top" alt="기사 사진">
@@ -36,8 +36,8 @@
           <a href="<%= article.url %>" class="btn btn-outline-primary btn-sm">기사 보기</a>
         </div>
       </div>
+    </div>
     <% end %>
-  </div>
 </div>
 
 <div class="row">

@@ -19,10 +19,11 @@
 .note-article-container{
 
   font-size: 0.7rem;
-  width: 35%;
+  max-width: 400px;
+  // width: 35%;
   
 }
 
 .note-content-container{
-  min-height: 300px;
+  min-height: 100px;
 }
