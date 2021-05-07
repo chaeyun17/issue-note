@@ -3,7 +3,7 @@
 
 class NotesController < ApplicationController
   before_action :set_note, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy, :like]
 
   # GET /notes or /notes.json
   def index
