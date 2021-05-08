@@ -59,3 +59,10 @@ a.nav-right-link:hover{
   padding: 2rem 2rem;
   border: 1px solid rgba(0, 0, 0, 0.4);
 }
+
+// Small devices (landscape phones, 576px and up)
+@media (max-width: 576px) {
+  .content-container {
+    padding: 1rem 1rem;
+  }
+}
