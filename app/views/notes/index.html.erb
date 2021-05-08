@@ -7,8 +7,9 @@
   <div class="col">
     <div class="row note-list-container">
       <% @notes.each do |note| %>
-        <div class="card note">
+        <div class="col-12">
           <a href="<%= note_path(note) %>">
+          <div class="card note">
             <div class="card-body">
               <%= note.title %>
               <span class="note-tags">
@@ -17,6 +18,7 @@
                 <% end %>
               </span>
             </div>
+          </div>
           </a>
         </div>
       <% end %>

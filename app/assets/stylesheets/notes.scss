@@ -11,17 +11,18 @@
   background:#FFF;
 }
 
+
 .note-list-container .note .note-tags{
-  padding-left: 3rem;
+  padding-left: 1rem;
 }
 
-.note-list-container .note a {
+.note-list-container a {
   color: rgba(0, 0, 0, .8);
   font-size: 0.9rem;
   text-decoration: none;
 }
 
-.note-list-container .note a:hover {
+.note-list-container a:hover {
   color: black;
 }
 
