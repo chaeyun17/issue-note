@@ -78,6 +78,7 @@
 <div class="row py-3">
   <div class="col">
     <%= link_to '수정', edit_note_path(@note) %> |
+    <%= link_to '삭제', @note, method: :delete, data: { confirm: 'Are you sure?' } %> | 
     <%= link_to '목록', notes_path %>
   </div>
 </div>

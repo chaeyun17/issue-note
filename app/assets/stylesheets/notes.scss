@@ -1,3 +1,27 @@
 // Place all the styles related to the Notes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.note-list-container .note{
+  width: 100%;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  -webkit-box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  box-shadow: 0 10px 6px -6px #777;
+  background:#FFF;
+}
+
+.note-list-container .note .note-tags{
+  padding-left: 3rem;
+}
+
+.note-list-container .note a {
+  color: rgba(0, 0, 0, .8);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.note-list-container .note a:hover {
+  color: black;
+}
+

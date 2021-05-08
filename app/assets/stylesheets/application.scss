@@ -15,6 +15,32 @@
  */
 /* @import "./actiontext.scss"; */
 @import "bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background:#ccc;
+
+}
+
+.app-nav-title{
+  font-size: 1.2rem;
+  font-weight: bolder;
+}
+
+a.nav-right-link{
+  color: rgba(255, 255, 255, .8);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+a.nav-right-link:hover{
+  color: white;
+}
+
+.app-nav-img{
+  background-color: white;
+}
 
 .note-article-container{
 
@@ -26,4 +52,10 @@
 
 .note-content-container{
   min-height: 100px;
+}
+
+.content-container{
+  background-color: white;
+  padding: 2rem 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.4);
 }
